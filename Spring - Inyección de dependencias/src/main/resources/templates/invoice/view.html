@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"/>
+</head>
+<body>
+    <h1 th:text="${title}"/>
+    <h3 th:text="${invoice.description}"/>
+    <div>Cliente: <span th:text="${invoice.client.name + ' ' + invoice.client.lastName}"/></div>
+    <h4>Detalle de la factura:</h4>
+    <table>
+        <caption>Factura 2021</caption>
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item: ${invoice.items}">
+                <td th:text="${item.product.name}"/>
+                <td th:text="${item.product.price}"/>
+                <td th:text="${item.amount}"/>
+                <td th:text="${item.product.price * item.amount}"/>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
