@@ -1,4 +1,4 @@
-package org.nebula.collection.set.hashset;
+package org.nebula.collection.set;
 
 import java.util.HashSet;
 import java.util.Set;
